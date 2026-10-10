@@ -1,5 +1,6 @@
 from fastapi import APIRouter
 from app.engine.threat_scorer import calculate_app_risk
+from app.engine.simulator import generate_mock_app_store
 
 router = APIRouter(prefix="/app-scans", tags=["App Store Monitoring"])
 
@@ -11,18 +12,22 @@ async def run_app_store_scan(brand_name: str, official_publisher: str, official_
         "logo_path": official_logo_path
     }
     
-    # For the hackathon, we simulate a detected malicious app
-    mock_detected_app = {
-        "app_name": f"{brand_name} Support Wallet",
-        "publisher": "Unknown Hacker Team",
-        "description": f"Urgent KYC verification for {brand_name}. DM for support.",
-        "icon_path": official_logo_path # Simulating a 100% stolen icon
-    }
+    # 1. Generate the list of mock apps found in the wild
+    apps_in_wild = generate_mock_app_store(brand_name, official_publisher)
     
-    analysis_result = calculate_app_risk(official_data, mock_detected_app)
+    # 2. Scan each app and store the results
+    scan_results = []
+    for detected_app in apps_in_wild:
+        analysis_result = calculate_app_risk(official_data, detected_app)
+        scan_results.append({
+            "detected_app": detected_app["app_name"],
+            "publisher": detected_app["publisher"],
+            "threat_analysis": analysis_result
+        })
     
+    # 3. Return the full report
     return {
         "status": "scan_complete",
-        "detected_app": mock_detected_app["app_name"],
-        "threat_analysis": analysis_result
+        "total_apps_scanned": len(apps_in_wild),
+        "results": scan_results
     }
