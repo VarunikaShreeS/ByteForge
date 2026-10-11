@@ -1,0 +1,1 @@
+const API_BASE_URL = "https://sentinel-ai-backend-21mu.onrender.com";
