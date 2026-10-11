@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SENTINEL AI — Community Safety</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        body { background-color: #0B1020; }
+    </style>
+</head>
+<body class="text-slate-200 font-sans antialiased selection:bg-purple-500 selection:text-white">
+    <!-- Navbar -->
+    <nav class="max-w-[1400px] mx-auto px-8 py-4 flex items-center justify-between border-b border-slate-800/60">
+        <div class="flex items-center space-x-3.5 shrink-0">
+            <a href="index.html" class="bg-[#121424] border border-purple-500/40 w-11 h-11 rounded-2xl flex items-center justify-center text-purple-400 shadow-lg shadow-purple-950/50">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path>
+                </svg>
+            </a>
+            <div>
+                <a href="index.html" class="font-bold tracking-wide text-white text-base block leading-tight">SENTINEL AI</a>
+                <span class="text-[9px] text-slate-400 tracking-[0.2em] uppercase block font-semibold mt-0.5">DETECT THREATS. PROTECT TRUST.</span>
+            </div>
+        </div>
+        
+        <div class="hidden xl:flex items-center space-x-7 text-[13px] text-slate-300 font-medium whitespace-nowrap">
+            <a href="index.html" class="hover:text-white transition">Home</a>
+            <a href="protection.html" class="hover:text-white transition">Business Protection</a>
+            <a href="safety.html" class="hover:text-white transition">Customer Safety</a>
+            <a href="reports.html" class="text-white bg-[#121829] px-3.5 py-1.5 rounded-xl border border-slate-800 shadow-sm">Community Reports</a>
+            <a href="tips.html" class="hover:text-white transition">Safety Tips</a>
+            <a href="about.html" class="hover:text-white transition">About</a>
+            <a href="login.html" class="hover:text-white transition">Business Login</a>
+        </div>
+        <div class="shrink-0">
+            <a href="check.html" class="bg-[#8B5CF6] hover:bg-[#7C3AED] text-white text-[13px] font-medium px-5 py-2.5 rounded-xl shadow-[0_0_20px_rgba(139,92,246,0.35)] transition whitespace-nowrap block">Check something suspicious</a>
+        </div>
+    </nav>
+
+    <!-- Main Content Section -->
+    <section class="max-w-[1400px] mx-auto px-8 pt-12 pb-20">
+        
+        <!-- Header with Report a Scam Button -->
+        <div class="flex flex-col md:flex-row md:items-center justify-between gap-6 mb-8">
+            <div>
+                <h1 class="text-3xl md:text-4xl font-extrabold text-white tracking-tight mb-2">Community Safety</h1>
+                <p class="text-slate-400 text-sm max-w-2xl leading-relaxed">
+                    Reports shared by members of the public, reviewed before publication. Read them to recognise patterns before you click, pay or share information.
+                </p>
+            </div>
+            <div class="shrink-0">
+                <a href="#" class="bg-[#8B5CF6] hover:bg-[#7C3AED] text-white text-sm font-medium px-5 py-3 rounded-xl shadow-lg shadow-purple-900/40 inline-flex items-center space-x-2 transition">
+                    <i class="fa-solid fa-bullhorn"></i>
+                    <span>Report a Scam</span>
+                </a>
+            </div>
+        </div>
+
+        <!-- Warning Alert Banner -->
+        <div class="bg-[#161c2d] border border-amber-500/30 rounded-2xl p-4 md:p-5 flex items-start space-x-3.5 mb-8 shadow-md">
+            <div class="text-amber-400 text-base mt-0.5 shrink-0">
+                <i class="fa-solid fa-triangle-exclamation"></i>
+            </div>
+            <p class="text-xs text-amber-200/90 leading-relaxed font-medium">
+                Community reports are allegations or observations, not proof of wrongdoing. Verify information independently before taking action. Reports are held for review — a new submission does not appear here immediately, and it is never labelled as a confirmed scam.
+            </p>
+        </div>
+
+        <!-- Filters & Search Bar Row -->
+        <div class="flex flex-wrap items-center gap-3 mb-6">
+            <!-- Search Box -->
+            <div class="relative flex-grow sm:flex-grow-0 sm:w-64">
+                <span class="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-slate-400">
+                    <i class="fa-solid fa-magnifying-glass text-xs"></i>
+                </span>
+                <input type="text" placeholder="Search reports..." class="w-full bg-[#121829] border border-slate-800 rounded-xl py-2 pl-9 pr-4 text-xs text-white placeholder-slate-500 focus:outline-none focus:border-purple-500 transition">
+            </div>
+
+            <!-- Filter Badges -->
+            <button onclick="filterReports('all')" id="filter-all" class="bg-[#182136] border border-purple-500 text-white text-xs font-medium px-4 py-2 rounded-xl transition">All types</button>
+            <button onclick="filterReports('social')" id="filter-social" class="bg-[#121829] hover:bg-[#182136] border border-slate-800 text-slate-300 text-xs font-medium px-4 py-2 rounded-xl transition">Fake social media profile</button>
+            <button onclick="filterReports('brand')" id="filter-brand" class="bg-[#121829] hover:bg-[#182136] border border-slate-800 text-slate-300 text-xs font-medium px-4 py-2 rounded-xl transition">Brand impersonation</button>
+            <button onclick="filterReports('shopping')" id="filter-shopping" class="bg-[#121829] hover:bg-[#182136] border border-slate-800 text-slate-300 text-xs font-medium px-4 py-2 rounded-xl transition">Online shopping scam</button>
+            <button onclick="filterReports('payment')" id="filter-payment" class="bg-[#121829] hover:bg-[#182136] border border-slate-800 text-slate-300 text-xs font-medium px-4 py-2 rounded-xl transition">Payment fraud</button>
+            <button onclick="filterReports('phishing')" id="filter-phishing" class="bg-[#121829] hover:bg-[#182136] border border-slate-800 text-slate-300 text-xs font-medium px-4 py-2 rounded-xl transition">Phishing link</button>
+
+            <!-- Dropdowns -->
+            <div class="ml-auto flex items-center gap-3">
+                <select id="type-select" onchange="filterByDropdown(this.value)" class="bg-[#121829] border border-slate-800 text-slate-300 text-xs font-medium px-3.5 py-2 rounded-xl focus:outline-none focus:border-purple-500 transition">
+                    <option value="all">All scam types...</option>
+                    <option value="social">Fake social media profile</option>
+                    <option value="brand">Brand impersonation</option>
+                    <option value="shopping">Online shopping scam</option>
+                    <option value="payment">Payment fraud</option>
+                    <option value="phishing">Phishing link</option>
+                </select>
+
+                <select class="bg-[#121829] border border-slate-800 text-slate-300 text-xs font-medium px-3.5 py-2 rounded-xl focus:outline-none focus:border-purple-500 transition">
+                    <option>Recently reported</option>
+                    <option>Most helpful</option>
+                </select>
+            </div>
+        </div>
+
+        <!-- Count Subheading -->
+        <div class="mb-6 flex items-center space-x-2 text-xs text-slate-400 font-medium">
+            <span id="report-count-badge" class="text-white font-bold">2 published reports</span>
+            <span>•</span>
+            <span>2 with at least one community confirmation</span>
+            <span>•</span>
+            <span class="text-slate-500">Community confirmations are signals, not a fraud assessment.</span>
+        </div>
+
+        <!-- Reports Cards Grid -->
+        <div id="reports-grid" class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            
+            <!-- Report Card 1: Phishing Link -->
+            <div data-category="phishing" class="report-card bg-[#121829] border border-slate-800/80 rounded-2xl p-6 flex flex-col justify-between shadow-xl">
+                <div>
+                    <div class="flex flex-wrap items-center justify-between gap-2 mb-4">
+                        <div class="flex items-center space-x-2">
+                            <span class="bg-[#182136] border border-slate-700/60 text-slate-300 text-[11px] font-medium px-2.5 py-1 rounded-lg">Phishing link</span>
+                            <span class="bg-[#182136] border border-slate-700/60 text-slate-300 text-[11px] font-medium px-2.5 py-1 rounded-lg">SMS</span>
+                            <span class="bg-[#1E1B38] border border-purple-500/40 text-purple-300 text-[11px] font-medium px-2.5 py-1 rounded-lg">Demonstration record</span>
+                        </div>
+                        <div class="flex items-center space-x-2">
+                            <span class="bg-rose-950/60 border border-rose-800/60 text-rose-300 text-[10px] font-bold px-2.5 py-0.5 rounded-full"><i class="fa-solid fa-circle text-[7px] mr-1"></i>High</span>
+                            <span class="bg-emerald-950/60 border border-emerald-800/60 text-emerald-300 text-[10px] font-bold px-2.5 py-0.5 rounded-full">Published</span>
+                        </div>
+                    </div>
+                    <h3 class="text-lg font-bold text-white mb-2 leading-snug">Parcel clearance fee message asking for a card payment</h3>
+                    <p class="text-slate-400 text-xs leading-relaxed mb-4">
+                        A text message said a parcel was held at customs and asked for a small clearance fee through a link. The page asked for full card details including the security code, which no delivery company needs to collect a small fe...
+                    </p>
+                    <div class="text-[11px] text-purple-400 font-mono mb-4 bg-[#182136]/60 px-3 py-1.5 rounded-lg inline-block border border-purple-900/30">
+                        parcel-demo.example.net/pay
+                    </div>
+                </div>
+                <div class="border-t border-slate-800/80 pt-4 flex flex-wrap items-center justify-between gap-3 text-[11px] text-slate-400">
+                    <div class="flex items-center space-x-4">
+                        <span>5 Oct 2026</span>
+                        <span>Reported by Anonymous</span>
+                    </div>
+                    <div class="flex items-center space-x-4">
+                        <span><i class="fa-solid fa-user-group text-slate-500 mr-1"></i> 3 similar experience</span>
+                        <span><i class="fa-solid fa-thumbs-up text-slate-500 mr-1"></i> 5 helpful</span>
+                        <span><i class="fa-regular fa-comment text-slate-500 mr-1"></i> 0 comments</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Report Card 2: Brand Impersonation -->
+            <div data-category="brand" class="report-card bg-[#121829] border border-slate-800/80 rounded-2xl p-6 flex flex-col justify-between shadow-xl">
+                <div>
+                    <div class="flex flex-wrap items-center justify-between gap-2 mb-4">
+                        <div class="flex items-center space-x-2">
+                            <span class="bg-[#182136] border border-slate-700/60 text-slate-300 text-[11px] font-medium px-2.5 py-1 rounded-lg">Brand impersonation</span>
+                            <span class="bg-[#182136] border border-slate-700/60 text-slate-300 text-[11px] font-medium px-2.5 py-1 rounded-lg">Instagram</span>
+                            <span class="bg-[#1E1B38] border border-purple-500/40 text-purple-300 text-[11px] font-medium px-2.5 py-1 rounded-lg">Demonstration record</span>
+                        </div>
+                        <div class="flex items-center space-x-2">
+                            <span class="bg-amber-950/60 border border-amber-800/60 text-amber-300 text-[10px] font-bold px-2.5 py-0.5 rounded-full"><i class="fa-solid fa-circle text-[7px] mr-1"></i>Elevated</span>
+                            <span class="bg-emerald-950/60 border border-emerald-800/60 text-emerald-300 text-[10px] font-bold px-2.5 py-0.5 rounded-full">Published</span>
+                        </div>
+                    </div>
+                    <h3 class="text-lg font-bold text-white mb-2 leading-snug">Fake Instagram shop using a well-known clothing brand name</h3>
+                    <p class="text-slate-400 text-xs leading-relaxed mb-4">
+                        I was sent a direct message offering 70% off from an account using a clothing brand's name with an extra word in the handle. When I asked to buy, I was told to transfer money to a personal UPI ID instead of checking out...
+                    </p>
+                    <div class="text-[11px] text-slate-400 mb-4 space-y-1">
+                        <div>Reported: <span class="text-purple-400 font-mono">@brandoutlet_sale_offer</span></div>
+                        <div>brandoutlet.example.net</div>
+                    </div>
+                </div>
+                <div class="border-t border-slate-800/80 pt-4 flex flex-wrap items-center justify-between gap-3 text-[11px] text-slate-400">
+                    <div class="flex items-center space-x-4">
+                        <span>1 Oct 2026</span>
+                        <span>Reported by Anonymous</span>
+                    </div>
+                    <div class="flex items-center space-x-4">
+                        <span><i class="fa-solid fa-user-group text-slate-500 mr-1"></i> 7 similar experience</span>
+                        <span><i class="fa-solid fa-thumbs-up text-slate-500 mr-1"></i> 12 helpful</span>
+                        <span><i class="fa-regular fa-comment text-slate-500 mr-1"></i> 0 comments</span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Empty State Container (Hidden by default) -->
+        <div id="empty-state" class="hidden bg-[#121829] border border-slate-800/80 rounded-2xl p-12 text-center shadow-xl">
+            <div class="w-12 h-12 bg-[#1b2238] border border-slate-700/50 rounded-full flex items-center justify-center mx-auto text-purple-400 text-lg mb-4 shadow-inner">
+                <i class="fa-solid fa-shield"></i>
+            </div>
+            <h3 class="text-lg font-bold text-white mb-2">No published reports match this filter</h3>
+            <p class="text-slate-400 text-xs mb-6">Try a different search term or clear the filters.</p>
+            <a href="#" class="bg-[#8B5CF6] hover:bg-[#7C3AED] text-white text-xs font-medium px-5 py-2.5 rounded-xl shadow-lg shadow-purple-900/40 inline-block transition">
+                Report a Scam
+            </a>
+        </div>
+
+    </section>
+
+    <!-- Interactive Filtering Script -->
+    <script>
+        function filterReports(category) {
+            // Update button styles
+            const filterIds = ['all', 'social', 'brand', 'shopping', 'payment', 'phishing'];
+            filterIds.forEach(id => {
+                const btn = document.getElementById('filter-' + id);
+                if (btn) {
+                    btn.className = "bg-[#121829] hover:bg-[#182136] border border-slate-800 text-slate-300 text-xs font-medium px-4 py-2 rounded-xl transition";
+                }
+            });
+
+            const activeBtn = document.getElementById('filter-' + category);
+            if (activeBtn) {
+                activeBtn.className = "bg-[#182136] border border-purple-500 text-white text-xs font-medium px-4 py-2 rounded-xl transition";
+            }
+
+            // Update dropdown as well
+            const dropdown = document.getElementById('type-select');
+            if (dropdown) {
+                dropdown.value = category;
+            }
+
+            // Filter cards
+            const cards = document.querySelectorAll('.report-card');
+            let visibleCount = 0;
+
+            cards.forEach(card => {
+                const cardCategory = card.getAttribute('data-category');
+                if (category === 'all' || cardCategory === category) {
+                    card.style.display = 'flex';
+                    visibleCount++;
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+
+            // Update count badge & empty state
+            const countBadge = document.getElementById('report-count-badge');
+            const emptyState = document.getElementById('empty-state');
+            const grid = document.getElementById('reports-grid');
+
+            if (countBadge) {
+                countBadge.textContent = visibleCount + (visibleCount === 1 ? ' published report' : ' published reports');
+            }
+
+            if (visibleCount === 0) {
+                emptyState.classList.remove('hidden');
+                grid.classList.add('hidden');
+            } else {
+                emptyState.classList.add('hidden');
+                grid.classList.remove('hidden');
+            }
+        }
+
+        function filterByDropdown(val) {
+            filterReports(val);
+        }
+    </script>
+
+    <!-- Footer -->
+    <footer class="border-t border-slate-800/80 bg-[#070A14] py-14 mt-10">
+        <div class="max-w-[1400px] mx-auto px-8 grid grid-cols-1 md:grid-cols-4 gap-10 text-sm text-slate-300 mb-12">
+            <div>
+                <span class="font-bold text-white text-base block mb-3 tracking-wide">SENTINEL AI</span>
+                <p class="text-sm text-slate-400 leading-relaxed">Digital risk protection for businesses, and a free safety check for everyone else.</p>
+            </div>
+            <div>
+                <h4 class="font-bold text-white text-xs uppercase tracking-widest mb-4">Platform</h4>
+                <ul class="space-y-3 text-sm">
+                    <li><a href="protection.html" class="hover:text-white transition">Business Protection</a></li>
+                    <li><a href="businesses.html" class="hover:text-white transition">Registered businesses</a></li>
+                    <li><a href="register.html" class="hover:text-white transition">Register your business</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="font-bold text-white text-xs uppercase tracking-widest mb-4">Customer Safety</h4>
+                <ul class="space-y-3 text-sm">
+                    <li><a href="check.html" class="hover:text-white transition">Safety checker</a></li>
+                    <li><a href="reports.html" class="hover:text-white transition">Community reports</a></li>
+                    <li><a href="tips.html" class="hover:text-white transition">Safety tips</a></li>
+                    <li><a href="#" class="hover:text-white transition">Check my report status</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="font-bold text-white text-xs uppercase tracking-widest mb-4">Company</h4>
+                <ul class="space-y-3 text-sm">
+                    <li><a href="about.html" class="hover:text-white transition">About</a></li>
+                    <li><a href="#" class="hover:text-white transition">Privacy</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="max-w-[1400px] mx-auto px-8 border-t border-slate-800/60 pt-6 flex flex-col md:flex-row items-center justify-between text-sm text-slate-400">
+            <p>&copy; 2026 SENTINEL AI. Analysis is evidence-based; results are not proof of wrongdoing.</p>
+            <div class="flex space-x-6 mt-4 md:mt-0 font-medium">
+                <a href="about.html" class="hover:text-slate-200 transition">About</a>
+                <a href="#" class="hover:text-slate-200 transition">Privacy</a>
+                <a href="#" class="hover:text-slate-200 transition">Terms</a>
+                <a href="#" class="hover:text-slate-200 transition">Contact</a>
+                <a href="#" class="hover:text-slate-200 transition">Help</a>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

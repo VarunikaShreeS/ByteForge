@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SENTINEL AI — Customer Safety</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        body { background-color: #0B1020; }
+    </style>
+</head>
+<body class="text-slate-200 font-sans antialiased selection:bg-purple-500 selection:text-white">
+    <!-- Navbar -->
+    <nav class="max-w-[1400px] mx-auto px-8 py-4 flex items-center justify-between border-b border-slate-800/65">
+        <!-- Logo with Exact Shield Icon Box -->
+        <div class="flex items-center space-x-3.5 shrink-0">
+            <a href="index.html" class="bg-[#121424] border border-purple-500/40 w-11 h-11 rounded-2xl flex items-center justify-center text-purple-400 shadow-lg shadow-purple-950/50">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path>
+                </svg>
+            </a>
+            <div>
+                <a href="index.html" class="font-bold tracking-wide text-white text-base block leading-tight">SENTINEL AI</a>
+                <span class="text-[9px] text-slate-400 tracking-[0.2em] uppercase block font-semibold mt-0.5">DETECT THREATS. PROTECT TRUST.</span>
+            </div>
+        </div>
+        
+        <!-- Central Navigation Links -->
+        <div class="hidden xl:flex items-center space-x-7 text-[13px] text-slate-300 font-medium whitespace-nowrap">
+            <a href="index.html" class="hover:text-white transition">Home</a>
+            <a href="protection.html" class="hover:text-white transition">Business Protection</a>
+            <a href="safety.html" class="text-white bg-[#121829] px-3.5 py-1.5 rounded-xl border border-slate-800 shadow-sm">Customer Safety</a>
+            <a href="reports.html" class="hover:text-white transition">Community Reports</a>
+            <a href="#" class="hover:text-white transition">Safety Tips</a>
+            <a href="#" class="hover:text-white transition">About</a>
+            <a href="login.html" class="hover:text-white transition">Business Login</a>
+        </div>
+        <!-- Far Right Action Button -->
+        <div class="shrink-0">
+            <a href="check.html" class="bg-[#8B5CF6] hover:bg-[#7C3AED] text-white text-[13px] font-medium px-5 py-2.5 rounded-xl shadow-[0_0_20px_rgba(139,92,246,0.35)] transition whitespace-nowrap block">Check something suspicious</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="max-w-[1400px] mx-auto px-8 pt-16 pb-14">
+        <div class="inline-flex items-center space-x-2 bg-[#141B32] border border-purple-900/40 px-3.5 py-1.5 rounded-full text-xs font-medium text-purple-300 mb-6 shadow-sm">
+            <i class="fa-solid fa-shield text-purple-400"></i>
+            <span>Free to use — no business account needed</span>
+        </div>
+        
+        <h1 class="text-5xl md:text-6xl font-extrabold text-white tracking-tight mb-4">
+            Your Voice. Your Safety.
+        </h1>
+        
+        <p class="text-slate-400 text-base max-w-3xl leading-relaxed">
+            Report suspicious accounts, share scam experiences and help others recognise potential online threats. Basic checks and reporting work without signing in, and you can report anonymously.
+        </p>
+    </section>
+
+    <!-- Three Main Cards Grid -->
+    <section class="max-w-[1400px] mx-auto px-8 pb-16">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            
+            <!-- Card 1: Report a Scam -->
+            <div class="bg-[#121829] border border-slate-800/80 rounded-2xl p-8 flex flex-col justify-between shadow-xl">
+                <div>
+                    <div class="w-10 h-10 rounded-xl bg-[#1e2942] text-purple-400 border border-purple-900/40 flex items-center justify-center text-sm mb-6">
+                        <i class="fa-solid fa-bullhorn"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-3">Report a Scam</h3>
+                    <p class="text-slate-400 text-xs mb-8 leading-relaxed">
+                        Tell us what happened in a short form. You get a report reference and an access code you can use to check the outcome. Contact details are optional and always stay private.
+                    </p>
+                </div>
+                <div>
+                    <a href="reports.html" class="w-full bg-[#8B5CF6] hover:bg-[#7C3AED] text-white font-medium py-3 px-4 rounded-xl text-xs transition flex items-center justify-center shadow-lg shadow-purple-900/40">
+                        Open the report form
+                    </a>
+                </div>
+            </div>
+
+            <!-- Card 2: Check Something Suspicious -->
+            <div class="bg-[#121829] border border-slate-800/80 rounded-2xl p-8 flex flex-col justify-between shadow-xl">
+                <div>
+                    <div class="w-10 h-10 rounded-xl bg-[#1e2942] text-purple-400 border border-purple-900/40 flex items-center justify-center text-sm mb-6">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-3">Check Something Suspicious</h3>
+                    <p class="text-slate-400 text-xs mb-8 leading-relaxed">
+                        Check a link, a website, a message or a public profile before you click, pay or share anything. You get the warning signs found, what could not be checked, and what to do next.
+                    </p>
+                </div>
+                <div>
+                    <a href="check.html" class="w-full bg-[#8B5CF6] hover:bg-[#7C3AED] text-white font-medium py-3 px-4 rounded-xl text-xs transition flex items-center justify-center shadow-lg shadow-purple-900/40">
+                        Open the safety checker
+                    </a>
+                </div>
+            </div>
+
+            <!-- Card 3: Explore Community Reports -->
+            <div class="bg-[#121829] border border-slate-800/80 rounded-2xl p-8 flex flex-col justify-between shadow-xl">
+                <div>
+                    <div class="w-10 h-10 rounded-xl bg-[#1e2942] text-purple-400 border border-purple-900/40 flex items-center justify-center text-sm mb-6">
+                        <i class="fa-solid fa-users"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-3">Explore Community Reports</h3>
+                    <p class="text-slate-400 text-xs mb-8 leading-relaxed">
+                        Read reports that have been reviewed and published, add what you know, and mark whether you experienced something similar.
+                    </p>
+                </div>
+                <div>
+                    <a href="reports.html" class="w-full bg-[#8B5CF6] hover:bg-[#7C3AED] text-white font-medium py-3 px-4 rounded-xl text-xs transition flex items-center justify-center shadow-lg shadow-purple-900/40">
+                        Browse community reports
+                    </a>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Bottom Two Info Boxes Section -->
+    <section class="max-w-[1400px] mx-auto px-8 pb-20">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+            
+            <!-- Box 1: What happens to your report -->
+            <div class="bg-[#121829] border border-slate-800/80 rounded-2xl p-8 shadow-xl">
+                <h3 class="text-lg font-bold text-white mb-6">What happens to your report</h3>
+                <ol class="space-y-3.5 text-xs text-slate-300 leading-relaxed mb-6 list-decimal list-inside">
+                    <li>You submit the form and receive a report reference and a private access code.</li>
+                    <li>Screening flags anything that looks like personal data or an accusation stated as fact.</li>
+                    <li>A moderator reviews it and publishes, asks for more information, or rejects it with a reason.</li>
+                    <li>If published, only the details listed in the consent notice appear — never your contact details or your screenshot.</li>
+                    <li>You can check the status at any time with your access code.</li>
+                </ol>
+                <p class="text-[11px] text-slate-400 border-t border-slate-800 pt-4 leading-relaxed">
+                    A community report is not a police complaint. SENTINEL AI does not submit anything to a bank, platform or authority on your behalf.
+                </p>
+            </div>
+
+            <!-- Box 2: Privacy and safety of the checker -->
+            <div class="bg-[#121829] border border-slate-800/80 rounded-2xl p-8 flex flex-col justify-between shadow-xl">
+                <div>
+                    <h3 class="text-lg font-bold text-white mb-6">Privacy and safety of the checker</h3>
+                    <ul class="space-y-4 text-xs text-slate-300 leading-relaxed mb-6">
+                        <li class="flex items-start space-x-3">
+                            <i class="fa-solid fa-lock text-purple-400 mt-0.5"></i>
+                            <span>Never share a password, OTP, PIN, card number or bank credential with anyone — including this tool, and including anyone claiming to be from SENTINEL AI.</span>
+                        </li>
+                        <li class="flex items-start space-x-3">
+                            <i class="fa-solid fa-globe text-purple-400 mt-0.5"></i>
+                            <span>Look up a business's published official identity before you pay, and compare it with what you were sent.</span>
+                        </li>
+                        <li class="flex items-start space-x-3">
+                            <i class="fa-solid fa-shield-halved text-purple-400 mt-0.5"></i>
+                            <span>A result of "No Major Warning Signs Detected" is not a guarantee that something is safe — it means no warning signs were found in what could be checked.</span>
+                        </li>
+                    </ul>
+                </div>
+                <div class="flex flex-wrap items-center gap-3 pt-4 border-t border-slate-800">
+                    <a href="businesses.html" class="bg-[#182136] hover:bg-[#202c48] text-slate-200 text-xs font-medium px-4 py-2.5 rounded-xl border border-slate-700/50 transition">Check a business's official identity</a>
+                    <a href="#" class="text-xs text-purple-400 hover:underline font-medium">Read safety tips</a>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="border-t border-slate-800/80 bg-[#070A14] py-14">
+        <div class="max-w-[1400px] mx-auto px-8 grid grid-cols-1 md:grid-cols-4 gap-10 text-sm text-slate-300 mb-12">
+            <div>
+                <span class="font-bold text-white text-base block mb-3 tracking-wide">SENTINEL AI</span>
+                <p class="text-sm text-slate-400 leading-relaxed">Digital risk protection for businesses, and a free safety check for everyone else.</p>
+            </div>
+            <div>
+                <h4 class="font-bold text-white text-xs uppercase tracking-widest mb-4">Platform</h4>
+                <ul class="space-y-3 text-sm">
+                    <li><a href="protection.html" class="hover:text-white transition">Business Protection</a></li>
+                    <li><a href="businesses.html" class="hover:text-white transition">Registered businesses</a></li>
+                    <li><a href="register.html" class="hover:text-white transition">Register your business</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="font-bold text-white text-xs uppercase tracking-widest mb-4">Customer Safety</h4>
+                <ul class="space-y-3 text-sm">
+                    <li><a href="check.html" class="hover:text-white transition">Safety checker</a></li>
+                    <li><a href="reports.html" class="hover:text-white transition">Community reports</a></li>
+                    <li><a href="#" class="hover:text-white transition">Safety tips</a></li>
+                    <li><a href="#" class="hover:text-white transition">Check my report status</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="font-bold text-white text-xs uppercase tracking-widest mb-4">Company</h4>
+                <ul class="space-y-3 text-sm">
+                    <li><a href="#" class="hover:text-white transition">About</a></li>
+                    <li><a href="#" class="hover:text-white transition">Privacy</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="max-w-[1400px] mx-auto px-8 border-t border-slate-800/60 pt-6 flex flex-col md:flex-row items-center justify-between text-sm text-slate-400">
+            <p>&copy; 2026 SENTINEL AI. Analysis is evidence-based; results are not proof of wrongdoing.</p>
+            <div class="flex space-x-6 mt-4 md:mt-0 font-medium">
+                <a href="#" class="hover:text-slate-200 transition">About</a>
+                <a href="#" class="hover:text-slate-200 transition">Privacy</a>
+                <a href="#" class="hover:text-slate-200 transition">Terms</a>
+                <a href="#" class="hover:text-slate-200 transition">Contact</a>
+                <a href="#" class="hover:text-slate-200 transition">Help</a>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

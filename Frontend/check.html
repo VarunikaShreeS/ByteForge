@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SENTINEL AI — Check Before You Trust</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        body { background-color: #0B1020; }
+    </style>
+</head>
+<body class="text-slate-200 font-sans antialiased selection:bg-purple-500 selection:text-white">
+    <!-- Navbar -->
+    <nav class="max-w-[1400px] mx-auto px-8 py-4 flex items-center justify-between border-b border-slate-800/60">
+        <div class="flex items-center space-x-3.5 shrink-0">
+            <a href="index.html" class="bg-[#121424] border border-purple-500/40 w-11 h-11 rounded-2xl flex items-center justify-center text-purple-400 shadow-lg shadow-purple-950/50">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path>
+                </svg>
+            </a>
+            <div>
+                <a href="index.html" class="font-bold tracking-wide text-white text-base block leading-tight">SENTINEL AI</a>
+                <span class="text-[9px] text-slate-400 tracking-[0.2em] uppercase block font-semibold mt-0.5">DETECT THREATS. PROTECT TRUST.</span>
+            </div>
+        </div>
+        
+        <div class="hidden xl:flex items-center space-x-7 text-[13px] text-slate-300 font-medium whitespace-nowrap">
+            <a href="index.html" class="hover:text-white transition">Home</a>
+            <a href="protection.html" class="hover:text-white transition">Business Protection</a>
+            <a href="safety.html" class="hover:text-white transition">Customer Safety</a>
+            <a href="reports.html" class="hover:text-white transition">Community Reports</a>
+            <a href="tips.html" class="hover:text-white transition">Safety Tips</a>
+            <a href="about.html" class="hover:text-white transition">About</a>
+            <a href="login.html" class="hover:text-white transition">Business Login</a>
+        </div>
+        <div class="shrink-0">
+            <a href="check.html" class="bg-[#8B5CF6] text-white text-[13px] font-medium px-5 py-2.5 rounded-xl shadow-[0_0_20px_rgba(139,92,246,0.35)] whitespace-nowrap block">Check something suspicious</a>
+        </div>
+    </nav>
+
+    <!-- Main Content Section -->
+    <section class="max-w-5xl mx-auto px-6 pt-16 pb-20">
+        <div class="inline-flex items-center space-x-2 bg-[#141B32] border border-purple-900/40 px-3.5 py-1.5 rounded-full text-xs font-medium text-purple-300 mb-4 shadow-sm">
+            <i class="fa-solid fa-shield text-purple-400"></i>
+            <span>Check Before You Trust</span>
+        </div>
+        
+        <h1 class="text-3xl md:text-4xl font-extrabold text-white tracking-tight mb-2">Check Before You Trust</h1>
+        <p class="text-slate-400 text-sm mb-10">Check suspicious links, messages, websites and profiles before clicking, paying or sharing information.</p>
+        
+        <!-- Checker Interactive Box -->
+        <div class="bg-[#121829] border border-slate-800/80 rounded-2xl p-6 md:p-8 shadow-2xl mb-12">
+            <!-- 4 Interactive Cards Grid -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
+                
+                <!-- Card 1: Check a Link -->
+                <div id="card-link" onclick="switchTab('link')" class="bg-[#182136] border border-purple-500/60 rounded-xl p-4 cursor-pointer shadow-md transition">
+                    <div class="flex items-center space-x-2 text-purple-400 text-xs font-bold uppercase tracking-wider mb-1">
+                        <i class="fa-solid fa-link text-sm"></i>
+                        <span>Check a Link</span>
+                    </div>
+                    <p class="text-[11px] text-slate-400 leading-tight">A web address you were sent or found.</p>
+                </div>
+
+                <!-- Card 2: Check a Message -->
+                <div id="card-message" onclick="switchTab('message')" class="bg-[#151c2f] hover:bg-[#182136] border border-slate-800 rounded-xl p-4 cursor-pointer transition">
+                    <div class="flex items-center space-x-2 text-slate-300 text-xs font-bold uppercase tracking-wider mb-1">
+                        <i class="fa-regular fa-envelope text-sm"></i>
+                        <span>Check a Message</span>
+                    </div>
+                    <p class="text-[11px] text-slate-400 leading-tight">SMS, WhatsApp, email or social media text.</p>
+                </div>
+
+                <!-- Card 3: Check a Social Profile -->
+                <div id="card-profile" onclick="switchTab('profile')" class="bg-[#151c2f] hover:bg-[#182136] border border-slate-800 rounded-xl p-4 cursor-pointer transition">
+                    <div class="flex items-center space-x-2 text-slate-300 text-xs font-bold uppercase tracking-wider mb-1">
+                        <i class="fa-solid fa-user-shield text-sm"></i>
+                        <span>Check a Social Profile</span>
+                    </div>
+                    <p class="text-[11px] text-slate-400 leading-tight">A public profile address, where the platform allows it.</p>
+                </div>
+
+                <!-- Card 4: Check a Website -->
+                <div id="card-website" onclick="switchTab('website')" class="bg-[#151c2f] hover:bg-[#182136] border border-slate-800 rounded-xl p-4 cursor-pointer transition">
+                    <div class="flex items-center space-x-2 text-slate-300 text-xs font-bold uppercase tracking-wider mb-1">
+                        <i class="fa-solid fa-magnifying-glass text-sm"></i>
+                        <span>Check a Website</span>
+                    </div>
+                    <p class="text-[11px] text-slate-400 leading-tight">A shop or website you are unsure about.</p>
+                </div>
+
+            </div>
+
+            <!-- Dynamic Input Area Container -->
+            <div class="space-y-4">
+                <div id="input-container" class="relative">
+                    <!-- Dynamically rendered input/textarea goes here -->
+                </div>
+                <div class="flex flex-wrap items-center justify-between gap-4">
+                    <button class="bg-[#8B5CF6] hover:bg-[#7C3AED] text-white font-medium px-7 py-3 rounded-xl text-sm shadow-lg shadow-purple-900/40 transition">
+                        Check this
+                    </button>
+                    <span class="text-xs text-slate-400 font-medium">Never enter a password, OTP, card number or bank credential into this tool.</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Info Boxes Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div class="bg-[#121829] border border-slate-800/80 rounded-2xl p-6 md:p-8 flex flex-col justify-between">
+                <div>
+                    <h3 class="text-base font-bold text-white mb-4">What we will never ask you for</h3>
+                    <ul class="space-y-3 text-xs text-slate-300 leading-relaxed mb-6">
+                        <li class="flex items-start space-x-2"><span class="text-purple-400 font-bold">•</span><span>Passwords, one-time passwords (OTPs), PINs or card security codes</span></li>
+                        <li class="flex items-start space-x-2"><span class="text-purple-400 font-bold">•</span><span>Bank account numbers, card numbers or net-banking credentials</span></li>
+                        <li class="flex items-start space-x-2"><span class="text-purple-400 font-bold">•</span><span>Identity documents or photographs of them</span></li>
+                    </ul>
+                </div>
+                <p class="text-[11px] text-slate-400 leading-relaxed border-t border-slate-800/80 pt-4">
+                    If anyone asks you for these — including someone claiming to be from SENTINEL AI — it is not us. Do not share them, and never send money to "unlock" a check or a refund.
+                </p>
+            </div>
+
+            <div class="bg-[#121829] border border-slate-800/80 rounded-2xl p-6 md:p-8 flex flex-col justify-between">
+                <div>
+                    <h3 class="text-base font-bold text-white mb-4">About your check</h3>
+                    <p class="text-xs text-slate-300 leading-relaxed mb-4">
+                        Your result is shown on this device and is not published anywhere. We store a one-way fingerprint and the result category for abuse prevention — not the text of the message you submitted.
+                    </p>
+                </div>
+                <p class="text-[11px] text-slate-400 leading-relaxed border-t border-slate-800/80 pt-4">
+                    Results are kept in this browser session only, so closing the tab clears them. To follow up on a report you submitted, use the reference and access code you were given on <a href="reports.html" class="text-purple-400 hover:underline">report status</a>.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- JavaScript for Tab Switching -->
+    <script>
+        function switchTab(type) {
+            // Reset all cards styling
+            const cards = ['link', 'message', 'profile', 'website'];
+            cards.forEach(c => {
+                const el = document.getElementById('card-' + c);
+                el.className = "bg-[#151c2f] hover:bg-[#182136] border border-slate-800 rounded-xl p-4 cursor-pointer transition";
+                const header = el.querySelector('div');
+                header.className = "flex items-center space-x-2 text-slate-300 text-xs font-bold uppercase tracking-wider mb-1";
+            });
+
+            // Highlight selected card
+            const activeCard = document.getElementById('card-' + type);
+            activeCard.className = "bg-[#182136] border border-purple-500/60 rounded-xl p-4 cursor-pointer shadow-md transition";
+            activeCard.querySelector('div').className = "flex items-center space-x-2 text-purple-400 text-xs font-bold uppercase tracking-wider mb-1";
+
+            // Render correct input field
+            const container = document.getElementById('input-container');
+            if (type === 'message') {
+                container.innerHTML = `<textarea rows="5" placeholder="Paste the message exactly as you received it, including the sender name and any links." class="w-full bg-[#182136] border border-slate-700/60 rounded-xl p-4 text-sm text-white placeholder-slate-500 focus:outline-none focus:border-purple-500 transition resize-none"></textarea>`;
+            } else if (type === 'link') {
+                container.innerHTML = `<input type="text" value="link-you-were-sent.com/offer" class="w-full bg-[#182136] border border-slate-700/60 rounded-xl py-3.5 px-4 text-sm text-white placeholder-slate-500 focus:outline-none focus:border-purple-500 transition">`;
+            } else if (type === 'profile') {
+                container.innerHTML = `<input type="text" value="https://social-network.com/account-name" class="w-full bg-[#182136] border border-slate-700/60 rounded-xl py-3.5 px-4 text-sm text-white placeholder-slate-500 focus:outline-none focus:border-purple-500 transition">`;
+            } else if (type === 'website') {
+                container.innerHTML = `<input type="text" value="shop-website.com" class="w-full bg-[#182136] border border-slate-700/60 rounded-xl py-3.5 px-4 text-sm text-white placeholder-slate-500 focus:outline-none focus:border-purple-500 transition">`;
+            }
+        }
+
+        // Initialize with 'link' active on load
+        switchTab('link');
+    </script>
+
+    <!-- Footer -->
+    <footer class="border-t border-slate-800/80 bg-[#070A14] py-14">
+        <div class="max-w-[1400px] mx-auto px-8 grid grid-cols-1 md:grid-cols-4 gap-10 text-sm text-slate-300 mb-12">
+            <div>
+                <span class="font-bold text-white text-base block mb-3 tracking-wide">SENTINEL AI</span>
+                <p class="text-sm text-slate-400 leading-relaxed">Digital risk protection for businesses, and a free safety check for everyone else.</p>
+            </div>
+            <div>
+                <h4 class="font-bold text-white text-xs uppercase tracking-widest mb-4">Platform</h4>
+                <ul class="space-y-3 text-sm">
+                    <li><a href="protection.html" class="hover:text-white transition">Business Protection</a></li>
+                    <li><a href="businesses.html" class="hover:text-white transition">Registered businesses</a></li>
+                    <li><a href="register.html" class="hover:text-white transition">Register your business</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="font-bold text-white text-xs uppercase tracking-widest mb-4">Customer Safety</h4>
+                <ul class="space-y-3 text-sm">
+                    <li><a href="check.html" class="hover:text-white transition">Safety checker</a></li>
+                    <li><a href="reports.html" class="hover:text-white transition">Community reports</a></li>
+                    <li><a href="tips.html" class="hover:text-white transition">Safety tips</a></li>
+                    <li><a href="#" class="hover:text-white transition">Check my report status</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="font-bold text-white text-xs uppercase tracking-widest mb-4">Company</h4>
+                <ul class="space-y-3 text-sm">
+                    <li><a href="about.html" class="hover:text-white transition">About</a></li>
+                    <li><a href="#" class="hover:text-white transition">Privacy</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="max-w-[1400px] mx-auto px-8 border-t border-slate-800/60 pt-6 flex flex-col md:flex-row items-center justify-between text-sm text-slate-400">
+            <p>&copy; 2026 SENTINEL AI. Analysis is evidence-based; results are not proof of wrongdoing.</p>
+            <div class="flex space-x-6 mt-4 md:mt-0 font-medium">
+                <a href="about.html" class="hover:text-slate-200 transition">About</a>
+                <a href="#" class="hover:text-slate-200 transition">Privacy</a>
+                <a href="#" class="hover:text-slate-200 transition">Terms</a>
+                <a href="#" class="hover:text-slate-200 transition">Contact</a>
+                <a href="#" class="hover:text-slate-200 transition">Help</a>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

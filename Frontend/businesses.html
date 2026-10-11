@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SENTINEL AI — Check This Business's Official Identity</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        body { background-color: #0B1020; }
+    </style>
+</head>
+<body class="text-slate-200 font-sans antialiased selection:bg-purple-500 selection:text-white">
+    <!-- Navbar -->
+    <nav class="max-w-[1400px] mx-auto px-8 py-4 flex items-center justify-between border-b border-slate-800/60">
+        <!-- Logo with Exact Shield Icon Box -->
+        <div class="flex items-center space-x-3.5 shrink-0">
+            <a href="index.html" class="bg-[#121424] border border-purple-500/40 w-11 h-11 rounded-2xl flex items-center justify-center text-purple-400 shadow-lg shadow-purple-950/50">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path>
+                </svg>
+            </a>
+            <div>
+                <a href="index.html" class="font-bold tracking-wide text-white text-base block leading-tight">SENTINEL AI</a>
+                <span class="text-[9px] text-slate-400 tracking-[0.2em] uppercase block font-semibold mt-0.5">DETECT THREATS. PROTECT TRUST.</span>
+            </div>
+        </div>
+        
+        <!-- Central Navigation Links -->
+        <div class="hidden xl:flex items-center space-x-7 text-[13px] text-slate-300 font-medium whitespace-nowrap">
+            <a href="index.html" class="hover:text-white transition">Home</a>
+            <a href="protection.html" class="hover:text-white transition">Business Protection</a>
+            <a href="#" class="hover:text-white transition">Customer Safety</a>
+            <a href="reports.html" class="hover:text-white transition">Community Reports</a>
+            <a href="#" class="hover:text-white transition">Safety Tips</a>
+            <a href="#" class="hover:text-white transition">About</a>
+            <a href="login.html" class="hover:text-white transition">Business Login</a>
+        </div>
+        <!-- Far Right Action Button -->
+        <div class="shrink-0">
+            <a href="check.html" class="bg-[#8B5CF6] hover:bg-[#7C3AED] text-white text-[13px] font-medium px-5 py-2.5 rounded-xl shadow-[0_0_20px_rgba(139,92,246,0.35)] transition whitespace-nowrap block">Check something suspicious</a>
+        </div>
+    </nav>
+    <!-- Main Directory Section -->
+    <section class="max-w-[1400px] mx-auto px-8 pt-12 pb-16">
+        <h1 class="text-3xl md:text-4xl font-extrabold text-white tracking-tight mb-2">Check This Business's Official Identity</h1>
+        <p class="text-slate-400 text-sm mb-8">Search for a participating business and compare it against the account, address or message you were sent. Only businesses that have explicitly opted into public listing appear here.</p>
+        <!-- Search Bar Row -->
+        <div class="flex flex-col md:flex-row items-center gap-4 mb-12">
+            <div class="relative w-full">
+                <span class="absolute inset-y-0 left-0 pl-4 flex items-center text-slate-500">
+                    <i class="fa-solid fa-magnifying-glass text-sm"></i>
+                </span>
+                <input type="text" placeholder="Business name or website address" class="w-full bg-[#121829] border border-slate-700/60 rounded-xl py-3.5 pl-11 pr-4 text-sm text-white placeholder-slate-500 focus:outline-none focus:border-purple-500 transition shadow-sm">
+            </div>
+            <button class="w-full md:w-auto bg-[#8B5CF6] hover:bg-[#7C3AED] text-white font-medium px-7 py-3.5 rounded-xl text-sm shadow-lg shadow-purple-900/40 transition shrink-0 whitespace-nowrap">
+                Search published identities
+            </button>
+        </div>
+        <!-- Business Cards Grid -->
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12">
+            
+            <!-- Card 1: Arun Textiles -->
+            <div class="bg-[#121829] border border-slate-800/80 rounded-2xl p-8 flex flex-col justify-between shadow-xl">
+                <div>
+                    <div class="flex items-center space-x-3 mb-4">
+                        <div class="w-12 h-12 rounded-xl bg-[#1e2942] text-slate-200 font-bold flex items-center justify-center text-sm border border-slate-700">AT</div>
+                        <div>
+                            <h3 class="text-lg font-bold text-white">Arun Textiles (demonstration)</h3>
+                            <p class="text-xs text-slate-400">Manufacturing &bull; example.com</p>
+                        </div>
+                    </div>
+                    <div class="flex items-center space-x-2 mb-4">
+                        <span class="bg-amber-950/60 text-amber-400 border border-amber-900/40 text-[11px] font-semibold px-3 py-1 rounded-md">Verification Pending</span>
+                        <span class="bg-[#182136] text-purple-300 border border-purple-900/50 text-[11px] font-semibold px-3 py-1 rounded-md">Demonstration record</span>
+                    </div>
+                    <p class="text-xs text-slate-300 mb-6 leading-relaxed">
+                        Demonstration identity showing the verification-pending state. This is not a real business.
+                    </p>
+                    <div class="space-y-3 text-xs text-slate-300 mb-6 border-t border-slate-800/80 pt-4">
+                        <div>
+                            <span class="text-slate-500 block text-[11px] uppercase tracking-wider mb-0.5">Published official website</span>
+                            <a href="#" class="text-purple-400 hover:underline font-mono">https://example.com</a>
+                        </div>
+                        <div>
+                            <span class="text-slate-500 block text-[11px] uppercase tracking-wider mb-0.5">Published support channels</span>
+                            <span class="text-slate-200">Customer care: the number published in our website footer</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="flex items-center justify-between border-t border-slate-800/80 pt-4 text-xs">
+                    <button class="bg-[#182136] hover:bg-[#202c48] text-slate-300 border border-slate-700/50 font-medium px-4 py-2 rounded-xl transition">Open Trust Passport</button>
+                    <span class="text-slate-500 text-[11px]">Not independently verified by SENTINEL AI</span>
+                </div>
+            </div>
+            <!-- Card 2: Kavery Traders -->
+            <div class="bg-[#121829] border border-slate-800/80 rounded-2xl p-8 flex flex-col justify-between shadow-xl">
+                <div>
+                    <div class="flex items-center space-x-3 mb-4">
+                        <div class="w-12 h-12 rounded-xl bg-[#1e2942] text-slate-200 font-bold flex items-center justify-center text-sm border border-slate-700">KT</div>
+                        <div>
+                            <h3 class="text-lg font-bold text-white">Kavery Traders (demonstration)</h3>
+                            <p class="text-xs text-slate-400">E-commerce &bull; example.com</p>
+                        </div>
+                    </div>
+                    <div class="flex items-center space-x-2 mb-4">
+                        <span class="bg-[#182136] text-purple-300 border border-purple-900/50 text-[11px] font-semibold px-3 py-1 rounded-md">Registered on SENTINEL AI</span>
+                        <span class="bg-[#182136] text-purple-300 border border-purple-900/50 text-[11px] font-semibold px-3 py-1 rounded-md">Demonstration record</span>
+                    </div>
+                    <p class="text-xs text-slate-300 mb-6 leading-relaxed">
+                        Demonstration identity showing how a registered but not yet verified business appears. This is not a real business.
+                    </p>
+                    <div class="space-y-3 text-xs text-slate-300 mb-6 border-t border-slate-800/80 pt-4">
+                        <div>
+                            <span class="text-slate-500 block text-[11px] uppercase tracking-wider mb-0.5">Published official website</span>
+                            <a href="#" class="text-purple-400 hover:underline font-mono">https://example.com</a>
+                        </div>
+                        <div>
+                            <span class="text-slate-500 block text-[11px] uppercase tracking-wider mb-0.5">Published official accounts</span>
+                            <span class="text-slate-200">Facebook: @kavery-traders-demo</span>
+                        </div>
+                        <div>
+                            <span class="text-slate-500 block text-[11px] uppercase tracking-wider mb-0.5">Published support channels</span>
+                            <span class="text-slate-200">Support email: support at the domain published here</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="flex items-center justify-between border-t border-slate-800/80 pt-4 text-xs">
+                    <span class="text-slate-500 text-[11px]">No public Trust Passport published</span>
+                    <span class="text-slate-500 text-[11px]">Not independently verified by SENTINEL AI</span>
+                </div>
+            </div>
+            <!-- Card 3: Nila Retail -->
+            <div class="bg-[#121829] border border-slate-800/80 rounded-2xl p-8 flex flex-col justify-between shadow-xl">
+                <div>
+                    <div class="flex items-center space-x-3 mb-4">
+                        <div class="w-12 h-12 rounded-xl bg-[#1e2942] text-slate-200 font-bold flex items-center justify-center text-sm border border-slate-700">NR</div>
+                        <div>
+                            <h3 class="text-lg font-bold text-white">Nila Retail (demonstration)</h3>
+                            <p class="text-xs text-slate-400">Retail and consumer brands &bull; example.com</p>
+                        </div>
+                    </div>
+                    <div class="flex items-center space-x-2 mb-4">
+                        <span class="bg-emerald-950/60 text-emerald-400 border border-emerald-900/40 text-[11px] font-semibold px-3 py-1 rounded-md">Identity Verified</span>
+                        <span class="bg-[#182136] text-purple-300 border border-purple-900/50 text-[11px] font-semibold px-3 py-1 rounded-md">Demonstration record</span>
+                    </div>
+                    <p class="text-xs text-slate-300 mb-6 leading-relaxed">
+                        Demonstration identity used to show how a published Trust Passport appears. This is not a real business.
+                    </p>
+                    <div class="space-y-3 text-xs text-slate-300 mb-6 border-t border-slate-800/80 pt-4">
+                        <div>
+                            <span class="text-slate-500 block text-[11px] uppercase tracking-wider mb-0.5">Published official website</span>
+                            <a href="#" class="text-purple-400 hover:underline font-mono">https://example.com</a>
+                        </div>
+                        <div>
+                            <span class="text-slate-500 block text-[11px] uppercase tracking-wider mb-0.5">Published official accounts</span>
+                            <span class="text-slate-200">Instagram: @nila-retail-demo</span>
+                        </div>
+                        <div>
+                            <span class="text-slate-500 block text-[11px] uppercase tracking-wider mb-0.5">Published support channels</span>
+                            <span class="text-slate-200">Customer care: the number published in our website footer</span>
+                        </div>
+                        <div>
+                            <span class="text-slate-500 block text-[11px] uppercase tracking-wider mb-0.5">Official purchasing channels</span>
+                            <span class="text-slate-200">Official store: https://example.com/store</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="flex items-center justify-between border-t border-slate-800/80 pt-4 text-xs">
+                    <button class="bg-[#182136] hover:bg-[#202c48] text-slate-300 border border-slate-700/50 font-medium px-4 py-2 rounded-xl transition">Open Trust Passport</button>
+                    <span class="text-slate-400 text-[11px]">Verified 14 Sep 2026</span>
+                </div>
+            </div>
+        </div>
+        <!-- Bottom Info Box: What this directory does and does not show -->
+        <div class="bg-[#121829] border border-slate-800/80 rounded-2xl p-8 mb-16">
+            <h3 class="text-base font-bold text-white mb-4">What this directory does and does not show</h3>
+            <ul class="space-y-3 text-xs text-slate-300 leading-relaxed">
+                <li class="flex items-start space-x-3">
+                    <i class="fa-solid fa-circle-check text-emerald-400 mt-0.5"></i>
+                    <span>Shown: the name, industry, logo, website, official accounts, support channels and verification status the business approved for publication.</span>
+                </li>
+                <li class="flex items-start space-x-3">
+                    <i class="fa-solid fa-circle-info text-slate-400 mt-0.5"></i>
+                    <span>Never shown: private contact details, payment information that was not approved, investigation history, risk assessments, evidence, internal notes or employee details.</span>
+                </li>
+                <li class="flex items-start space-x-3">
+                    <i class="fa-solid fa-circle-info text-slate-400 mt-0.5"></i>
+                    <span>Registering on SENTINEL AI does not grant a verified badge. "Identity Verified" means a reviewer checked specific claims; the published page states exactly what was verified and when.</span>
+                </li>
+            </ul>
+        </div>
+    </section>
+    <!-- Footer -->
+    <footer class="border-t border-slate-800/80 bg-[#070A14] py-14">
+        <div class="max-w-[1400px] mx-auto px-8 grid grid-cols-1 md:grid-cols-4 gap-10 text-sm text-slate-300 mb-12">
+            <div>
+                <span class="font-bold text-white text-base block mb-3 tracking-wide">SENTINEL AI</span>
+                <p class="text-sm text-slate-400 leading-relaxed">Digital risk protection for businesses, and a free safety check for everyone else.</p>
+            </div>
+            <div>
+                <h4 class="font-bold text-white text-xs uppercase tracking-widest mb-4">Platform</h4>
+                <ul class="space-y-3 text-sm">
+                    <li><a href="protection.html" class="hover:text-white transition">Business Protection</a></li>
+                    <li><a href="businesses.html" class="hover:text-white transition">Registered businesses</a></li>
+                    <li><a href="register.html" class="hover:text-white transition">Register your business</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="font-bold text-white text-xs uppercase tracking-widest mb-4">Customer Safety</h4>
+                <ul class="space-y-3 text-sm">
+                    <li><a href="check.html" class="hover:text-white transition">Safety checker</a></li>
+                    <li><a href="reports.html" class="hover:text-white transition">Community reports</a></li>
+                    <li><a href="#" class="hover:text-white transition">Safety tips</a></li>
+                    <li><a href="#" class="hover:text-white transition">Check my report status</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="font-bold text-white text-xs uppercase tracking-widest mb-4">Company</h4>
+                <ul class="space-y-3 text-sm">
+                    <li><a href="#" class="hover:text-white transition">About</a></li>
+                    <li><a href="#" class="hover:text-white transition">Privacy</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="max-w-[1400px] mx-auto px-8 border-t border-slate-800/60 pt-6 flex flex-col md:flex-row items-center justify-between text-sm text-slate-400">
+            <p>&copy; 2026 SENTINEL AI. Analysis is evidence-based; results are not proof of wrongdoing.</p>
+            <div class="flex space-x-6 mt-4 md:mt-0 font-medium">
+                <a href="#" class="hover:text-slate-200 transition">About</a>
+                <a href="#" class="hover:text-slate-200 transition">Privacy</a>
+                <a href="#" class="hover:text-slate-200 transition">Terms</a>
+                <a href="#" class="hover:text-slate-200 transition">Contact</a>
+                <a href="#" class="hover:text-slate-200 transition">Help</a>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

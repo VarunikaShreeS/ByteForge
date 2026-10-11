@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SENTINEL AI — Welcome back</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        body { background-color: #0B1020; }
+    </style>
+</head>
+<body class="text-slate-200 font-sans antialiased min-h-screen flex flex-col items-center justify-center py-12 px-4 selection:bg-purple-500 selection:text-white">
+
+    <!-- Top Icon Badge -->
+    <div class="mb-6">
+        <div class="bg-[#8B5CF6] w-14 h-14 rounded-2xl flex items-center justify-center text-white shadow-[0_0_25px_rgba(139,92,246,0.5)]">
+            <svg class="w-7 h-7" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M11 16l-4-4m0 0l4-4m-4 4h14m-5 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h7a3 3 0 013 3v1"></path>
+            </svg>
+        </div>
+    </div>
+
+    <!-- Heading Text -->
+    <div class="text-center mb-8">
+        <h1 class="text-3xl font-extrabold text-white tracking-tight mb-2">Welcome back</h1>
+        <p class="text-sm text-slate-400">Log in to your account</p>
+    </div>
+
+    <!-- Login Card Container -->
+    <div class="w-full max-w-[460px] bg-[#121829] border border-slate-800/80 rounded-2xl p-8 shadow-2xl">
+        
+        <!-- Continue with Google Button -->
+        <button class="w-full bg-[#182136] hover:bg-[#202c48] border border-slate-700/60 text-white font-medium py-3 px-4 rounded-xl flex items-center justify-center space-x-3 transition shadow-sm mb-6">
+            <svg class="w-5 h-5" viewBox="0 0 24 24">
+                <path fill="#EA4335" d="M12 5c1.6 0 3 .6 4.1 1.6l3.1-3.1C17.3 1.8 14.8 1 12 1 7.5 1 3.7 3.6 1.8 7.4l3.7 2.9C6.4 7.3 9 5 12 5z"/>
+                <path fill="#4285F4" d="M23.5 12.3c0-.8-.1-1.6-.2-2.3H12v4.5h6.5c-.3 1.5-1.1 2.8-2.4 3.7l3.7 2.9c2.2-2 3.7-5 3.7-8.8z"/>
+                <path fill="#FBBC05" d="M5.5 14.7c-.2-.7-.4-1.5-.4-2.7s.2-2 .4-2.7L1.8 6.4C.7 8.6 0 10.2 0 12s.7 3.4 1.8 5.6l3.7-2.9z"/>
+                <path fill="#34A853" d="M12 23c3.2 0 6-1.1 8-3l-3.7-2.9c-1.1.7-2.5 1.2-4.3 1.2-3 0-5.6-2.3-6.5-5.3L1.8 15C3.7 18.8 7.5 23 12 23z"/>
+            </svg>
+            <span class="text-sm font-semibold">Continue with Google</span>
+        </button>
+
+        <!-- OR Divider -->
+        <div class="relative flex py-2 items-center mb-6">
+            <div class="flex-grow border-t border-slate-800"></div>
+            <span class="flex-shrink mx-4 text-xs font-semibold text-slate-500 uppercase tracking-widest">OR</span>
+            <div class="flex-grow border-t border-slate-800"></div>
+        </div>
+
+        <!-- Form Fields -->
+        <form class="space-y-5">
+            <div>
+                <label class="block text-xs font-semibold uppercase tracking-wider text-slate-300 mb-2">Email</label>
+                <div class="relative">
+                    <span class="absolute inset-y-0 left-0 pl-3.5 flex items-center text-slate-500">
+                        <i class="fa-regular fa-envelope text-sm"></i>
+                    </span>
+                    <input type="email" placeholder="you@example.com" class="w-full bg-[#182136] border border-slate-700/60 rounded-xl py-3 pl-10 pr-4 text-sm text-white placeholder-slate-500 focus:outline-none focus:border-purple-500 transition">
+                </div>
+            </div>
+
+            <div>
+                <div class="flex items-center justify-between mb-2">
+                    <label class="block text-xs font-semibold uppercase tracking-wider text-slate-300">Password</label>
+                    <a href="#" class="text-xs text-[#A78BFA] hover:underline font-medium">Forgot password?</a>
+                </div>
+                <div class="relative">
+                    <span class="absolute inset-y-0 left-0 pl-3.5 flex items-center text-slate-500">
+                        <i class="fa-solid fa-lock text-sm"></i>
+                    </span>
+                    <input type="password" placeholder="••••••••" class="w-full bg-[#182136] border border-slate-700/60 rounded-xl py-3 pl-10 pr-4 text-sm text-white placeholder-slate-500 focus:outline-none focus:border-purple-500 transition">
+                </div>
+            </div>
+
+            <!-- Submit Button -->
+            <button type="submit" class="w-full bg-[#8B5CF6] hover:bg-[#7C3AED] text-white font-medium py-3.5 px-4 rounded-xl shadow-lg shadow-purple-900/40 transition text-sm">
+                Log in
+            </button>
+        </form>
+    </div>
+
+    <!-- Bottom Footer Link -->
+    <div class="mt-6 text-center text-xs text-slate-400">
+        Don't have an account? <a href="register.html" class="text-[#A78BFA] font-medium hover:underline ml-1">Create one</a>
+    </div>
+
+</body>
+</html>
