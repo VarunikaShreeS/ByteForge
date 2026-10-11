@@ -51,7 +51,7 @@
                 </p>
             </div>
             <div class="shrink-0">
-                <a href="#" class="bg-[#8B5CF6] hover:bg-[#7C3AED] text-white text-sm font-medium px-5 py-3 rounded-xl shadow-lg shadow-purple-900/40 inline-flex items-center space-x-2 transition">
+                <a href="#" class="bg-[#8B5CF6] hover:bg-[#7C3AED] text-white text-sm font-medium px-5 py-3 rounded-xl shadow-lg shadow-purple-900/40 inline-flex items-center space-x-2 transition open-report-modal">
                     <i class="fa-solid fa-bullhorn"></i>
                     <span>Report a Scam</span>
                 </a>
@@ -70,7 +70,6 @@
 
         <!-- Filters & Search Bar Row -->
         <div class="flex flex-wrap items-center gap-3 mb-6">
-            <!-- Search Box -->
             <div class="relative flex-grow sm:flex-grow-0 sm:w-64">
                 <span class="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-slate-400">
                     <i class="fa-solid fa-magnifying-glass text-xs"></i>
@@ -78,7 +77,6 @@
                 <input type="text" placeholder="Search reports..." class="w-full bg-[#121829] border border-slate-800 rounded-xl py-2 pl-9 pr-4 text-xs text-white placeholder-slate-500 focus:outline-none focus:border-purple-500 transition">
             </div>
 
-            <!-- Filter Badges -->
             <button onclick="filterReports('all')" id="filter-all" class="bg-[#182136] border border-purple-500 text-white text-xs font-medium px-4 py-2 rounded-xl transition">All types</button>
             <button onclick="filterReports('social')" id="filter-social" class="bg-[#121829] hover:bg-[#182136] border border-slate-800 text-slate-300 text-xs font-medium px-4 py-2 rounded-xl transition">Fake social media profile</button>
             <button onclick="filterReports('brand')" id="filter-brand" class="bg-[#121829] hover:bg-[#182136] border border-slate-800 text-slate-300 text-xs font-medium px-4 py-2 rounded-xl transition">Brand impersonation</button>
@@ -86,7 +84,6 @@
             <button onclick="filterReports('payment')" id="filter-payment" class="bg-[#121829] hover:bg-[#182136] border border-slate-800 text-slate-300 text-xs font-medium px-4 py-2 rounded-xl transition">Payment fraud</button>
             <button onclick="filterReports('phishing')" id="filter-phishing" class="bg-[#121829] hover:bg-[#182136] border border-slate-800 text-slate-300 text-xs font-medium px-4 py-2 rounded-xl transition">Phishing link</button>
 
-            <!-- Dropdowns -->
             <div class="ml-auto flex items-center gap-3">
                 <select id="type-select" onchange="filterByDropdown(this.value)" class="bg-[#121829] border border-slate-800 text-slate-300 text-xs font-medium px-3.5 py-2 rounded-xl focus:outline-none focus:border-purple-500 transition">
                     <option value="all">All scam types...</option>
@@ -104,7 +101,6 @@
             </div>
         </div>
 
-        <!-- Count Subheading -->
         <div class="mb-6 flex items-center space-x-2 text-xs text-slate-400 font-medium">
             <span id="report-count-badge" class="text-white font-bold">2 published reports</span>
             <span>•</span>
@@ -113,10 +109,7 @@
             <span class="text-slate-500">Community confirmations are signals, not a fraud assessment.</span>
         </div>
 
-        <!-- Reports Cards Grid -->
         <div id="reports-grid" class="grid grid-cols-1 md:grid-cols-2 gap-6">
-            
-            <!-- Report Card 1: Phishing Link -->
             <div data-category="phishing" class="report-card bg-[#121829] border border-slate-800/80 rounded-2xl p-6 flex flex-col justify-between shadow-xl">
                 <div>
                     <div class="flex flex-wrap items-center justify-between gap-2 mb-4">
@@ -151,7 +144,6 @@
                 </div>
             </div>
 
-            <!-- Report Card 2: Brand Impersonation -->
             <div data-category="brand" class="report-card bg-[#121829] border border-slate-800/80 rounded-2xl p-6 flex flex-col justify-between shadow-xl">
                 <div>
                     <div class="flex flex-wrap items-center justify-between gap-2 mb-4">
@@ -186,47 +178,138 @@
                     </div>
                 </div>
             </div>
-
         </div>
 
-        <!-- Empty State Container (Hidden by default) -->
         <div id="empty-state" class="hidden bg-[#121829] border border-slate-800/80 rounded-2xl p-12 text-center shadow-xl">
             <div class="w-12 h-12 bg-[#1b2238] border border-slate-700/50 rounded-full flex items-center justify-center mx-auto text-purple-400 text-lg mb-4 shadow-inner">
                 <i class="fa-solid fa-shield"></i>
             </div>
             <h3 class="text-lg font-bold text-white mb-2">No published reports match this filter</h3>
             <p class="text-slate-400 text-xs mb-6">Try a different search term or clear the filters.</p>
-            <a href="#" class="bg-[#8B5CF6] hover:bg-[#7C3AED] text-white text-xs font-medium px-5 py-2.5 rounded-xl shadow-lg shadow-purple-900/40 inline-block transition">
+            <a href="#" class="bg-[#8B5CF6] hover:bg-[#7C3AED] text-white text-xs font-medium px-5 py-2.5 rounded-xl shadow-lg shadow-purple-900/40 inline-block transition open-report-modal">
                 Report a Scam
             </a>
         </div>
-
     </section>
 
-    <!-- Interactive Filtering Script -->
+    <!-- Modal Background overlay -->
+    <div id="reportModal" class="fixed inset-0 z-50 flex items-center justify-center bg-[#070A14]/80 backdrop-blur-sm" style="display: none;">
+        <!-- Modal Content Container -->
+        <div class="bg-[#121829] border border-slate-800/80 rounded-2xl w-full max-w-2xl max-h-[90vh] overflow-y-auto shadow-2xl relative">
+            <div class="sticky top-0 bg-[#121829] border-b border-slate-800/80 p-6 flex items-center justify-between z-10">
+                <div>
+                    <h2 class="text-xl font-bold text-white">Report a suspected scam</h2>
+                    <p class="text-slate-400 text-xs mt-1">Tell us what happened. Reports help other people recognise the pattern. Do not include passwords, OTPs, card numbers or bank credentials anywhere in this form.</p>
+                </div>
+                <button id="closeModalIcon" class="text-slate-400 hover:text-white transition w-8 h-8 flex items-center justify-center bg-[#182136] rounded-full shrink-0">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+            </div>
+            <div class="p-6 space-y-6">
+                <div>
+                    <label class="block text-xs font-bold text-white mb-2">Complaint title</label>
+                    <input type="text" placeholder="Fake Instagram shop using a known brand name" class="w-full bg-[#182136] border border-slate-700/60 rounded-xl py-3 px-4 text-sm text-white placeholder-slate-500 focus:outline-none focus:border-purple-500 transition">
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div>
+                        <label class="block text-xs font-bold text-white mb-2">Type of suspected scam</label>
+                        <select class="w-full bg-[#182136] border border-slate-700/60 rounded-xl py-3 px-4 text-sm text-white focus:outline-none focus:border-purple-500 transition">
+                            <option>Choose a type</option>
+                            <option>Fake social media profile</option>
+                            <option>Brand impersonation</option>
+                            <option>Online shopping scam</option>
+                            <option>Payment fraud</option>
+                            <option>Phishing link</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block text-xs font-bold text-white mb-2">Platform where it happened</label>
+                        <select class="w-full bg-[#182136] border border-slate-700/60 rounded-xl py-3 px-4 text-sm text-white focus:outline-none focus:border-purple-500 transition">
+                            <option>Choose a platform</option>
+                            <option>Instagram</option>
+                            <option>Facebook</option>
+                            <option>WhatsApp</option>
+                            <option>SMS</option>
+                            <option>Website</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div>
+                        <label class="block text-xs font-bold text-white mb-2">Account username or profile link (optional)</label>
+                        <input type="text" placeholder="@account or profile link" class="w-full bg-[#182136] border border-slate-700/60 rounded-xl py-3 px-4 text-sm text-white placeholder-slate-500 focus:outline-none focus:border-purple-500 transition">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-bold text-white mb-2">Suspicious website or link (optional)</label>
+                        <input type="text" placeholder="example-shop.com" class="w-full bg-[#182136] border border-slate-700/60 rounded-xl py-3 px-4 text-sm text-white placeholder-slate-500 focus:outline-none focus:border-purple-500 transition">
+                    </div>
+                </div>
+                <div>
+                    <label class="block text-xs font-bold text-white mb-2">What happened</label>
+                    <textarea rows="4" placeholder="Describe what you were told, what you were asked to do, and what happened as a result." class="w-full bg-[#182136] border border-slate-700/60 rounded-xl py-3 px-4 text-sm text-white placeholder-slate-500 focus:outline-none focus:border-purple-500 transition resize-none"></textarea>
+                    <p class="text-[10px] text-slate-500 mt-1">0/4000 characters</p>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div>
+                        <label class="block text-xs font-bold text-white mb-2">Approximate date of the incident</label>
+                        <input type="date" class="w-full bg-[#182136] border border-slate-700/60 rounded-xl py-3 px-4 text-sm text-slate-400 focus:outline-none focus:border-purple-500 transition [color-scheme:dark]">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-bold text-white mb-2">Supporting screenshot (optional)</label>
+                        <input type="file" class="w-full bg-[#182136] border border-slate-700/60 rounded-xl py-2 px-4 text-sm text-slate-400 file:mr-4 file:py-1 file:px-3 file:rounded-md file:border-0 file:text-xs file:font-semibold file:bg-[#8B5CF6] file:text-white hover:file:bg-[#7C3AED] transition">
+                        <p class="text-[10px] text-slate-500 mt-1 flex items-start space-x-1"><i class="fa-solid fa-upload mt-0.5"></i><span>Screenshots are stored privately and are visible only to the moderation team.</span></p>
+                    </div>
+                </div>
+                <label class="flex items-start space-x-3 bg-[#182136]/50 border border-slate-700/40 rounded-xl p-4 cursor-pointer hover:bg-[#182136] transition">
+                    <input type="checkbox" checked class="mt-0.5 w-4 h-4 rounded text-purple-600 bg-slate-800 border-slate-700 focus:ring-purple-500 focus:ring-offset-slate-900">
+                    <div>
+                        <span class="block text-sm font-bold text-white mb-0.5">Report anonymously</span>
+                        <span class="block text-xs text-slate-400">Your display name is not shown. Contact details stay private either way.</span>
+                    </div>
+                </label>
+                <div class="bg-[#182136]/50 border border-slate-700/40 rounded-xl p-4">
+                    <div class="mb-3">
+                        <span class="block text-sm font-bold text-white mb-0.5">Optional contact details for follow-up</span>
+                        <span class="block text-xs text-slate-400">These are kept private, are never shown in the public feed, and are never shared with third parties.</span>
+                    </div>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-3">
+                        <input type="text" placeholder="Name" class="w-full bg-[#121829] border border-slate-700/60 rounded-lg py-2.5 px-3 text-sm text-white placeholder-slate-500 focus:outline-none focus:border-purple-500 transition">
+                        <input type="email" placeholder="Email" class="w-full bg-[#121829] border border-slate-700/60 rounded-lg py-2.5 px-3 text-sm text-white placeholder-slate-500 focus:outline-none focus:border-purple-500 transition">
+                        <input type="tel" placeholder="Phone" class="w-full bg-[#121829] border border-slate-700/60 rounded-lg py-2.5 px-3 text-sm text-white placeholder-slate-500 focus:outline-none focus:border-purple-500 transition">
+                    </div>
+                </div>
+                <div class="bg-amber-950/20 border border-amber-900/40 rounded-xl p-4">
+                    <p class="text-xs text-amber-200/90 font-medium leading-relaxed mb-3">
+                        What may become public: the title, the scam type, the platform, the account or link you name, your description and your display name (unless you report anonymously). Your contact details and your screenshot stay private. Community reports are allegations or observations, not proof of wrongdoing.
+                    </p>
+                    <label class="flex items-center space-x-3 cursor-pointer">
+                        <input type="checkbox" id="ackCheckbox" class="w-4 h-4 rounded-full text-purple-600 bg-slate-800 border-slate-700 focus:ring-purple-500 focus:ring-offset-slate-900 appearance-none border-2 checked:border-purple-500 checked:bg-purple-500 transition">
+                        <span class="text-sm font-bold text-white">I have read the notice above and understand what may be published after review.</span>
+                    </label>
+                </div>
+            </div>
+            <div class="sticky bottom-0 bg-[#121829] border-t border-slate-800/80 p-4 flex items-center justify-end space-x-3 z-10 rounded-b-2xl">
+                <button id="cancelModalBtn" class="bg-[#182136] hover:bg-[#202c48] border border-slate-700/60 text-white font-medium py-2.5 px-5 rounded-xl text-sm transition">Cancel</button>
+                <button id="submitReviewBtn" class="bg-[#8B5CF6] hover:bg-[#7C3AED] text-white font-medium py-2.5 px-5 rounded-xl text-sm shadow-lg shadow-purple-900/40 transition opacity-50 cursor-not-allowed pointer-events-none">Submit for review</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
     <script>
         function filterReports(category) {
-            // Update button styles
             const filterIds = ['all', 'social', 'brand', 'shopping', 'payment', 'phishing'];
             filterIds.forEach(id => {
                 const btn = document.getElementById('filter-' + id);
-                if (btn) {
-                    btn.className = "bg-[#121829] hover:bg-[#182136] border border-slate-800 text-slate-300 text-xs font-medium px-4 py-2 rounded-xl transition";
-                }
+                if (btn) btn.className = "bg-[#121829] hover:bg-[#182136] border border-slate-800 text-slate-300 text-xs font-medium px-4 py-2 rounded-xl transition";
             });
 
             const activeBtn = document.getElementById('filter-' + category);
-            if (activeBtn) {
-                activeBtn.className = "bg-[#182136] border border-purple-500 text-white text-xs font-medium px-4 py-2 rounded-xl transition";
-            }
+            if (activeBtn) activeBtn.className = "bg-[#182136] border border-purple-500 text-white text-xs font-medium px-4 py-2 rounded-xl transition";
 
-            // Update dropdown as well
             const dropdown = document.getElementById('type-select');
-            if (dropdown) {
-                dropdown.value = category;
-            }
+            if (dropdown) dropdown.value = category;
 
-            // Filter cards
             const cards = document.querySelectorAll('.report-card');
             let visibleCount = 0;
 
@@ -240,14 +323,11 @@
                 }
             });
 
-            // Update count badge & empty state
             const countBadge = document.getElementById('report-count-badge');
             const emptyState = document.getElementById('empty-state');
             const grid = document.getElementById('reports-grid');
 
-            if (countBadge) {
-                countBadge.textContent = visibleCount + (visibleCount === 1 ? ' published report' : ' published reports');
-            }
+            if (countBadge) countBadge.textContent = visibleCount + (visibleCount === 1 ? ' published report' : ' published reports');
 
             if (visibleCount === 0) {
                 emptyState.classList.remove('hidden');
@@ -258,14 +338,45 @@
             }
         }
 
-        function filterByDropdown(val) {
-            filterReports(val);
-        }
+        function filterByDropdown(val) { filterReports(val); }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const reportModal = document.getElementById('reportModal');
+            const openBtns = document.querySelectorAll('.open-report-modal');
+            const closeModalIcon = document.getElementById('closeModalIcon');
+            const cancelModalBtn = document.getElementById('cancelModalBtn');
+            const ackCheckbox = document.getElementById('ackCheckbox');
+            const submitBtn = document.getElementById('submitReviewBtn');
+
+            openBtns.forEach(btn => {
+                btn.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    reportModal.style.display = 'flex';
+                });
+            });
+
+            const closeModal = (e) => {
+                if(e) e.preventDefault();
+                reportModal.style.display = 'none';
+            };
+            
+            closeModalIcon.addEventListener('click', closeModal);
+            cancelModalBtn.addEventListener('click', closeModal);
+
+            ackCheckbox.addEventListener('change', (e) => {
+                if (e.target.checked) {
+                    submitBtn.classList.remove('opacity-50', 'cursor-not-allowed', 'pointer-events-none');
+                    submitBtn.classList.add('cursor-pointer');
+                } else {
+                    submitBtn.classList.add('opacity-50', 'cursor-not-allowed', 'pointer-events-none');
+                    submitBtn.classList.remove('cursor-pointer');
+                }
+            });
+        });
     </script>
 
     <!-- Footer -->
-    <!-- Corrected Footer (Paste this over the old footer in every HTML file) -->
-    <footer class="border-t border-slate-800/80 bg-[#070A14] py-14">
+    <footer class="border-t border-slate-800/80 bg-[#070A14] py-14 mt-10">
         <div class="max-w-[1400px] mx-auto px-8 grid grid-cols-1 md:grid-cols-4 gap-10 text-sm text-slate-300 mb-12">
             <div>
                 <span class="font-bold text-white text-base block mb-3 tracking-wide">SENTINEL AI</span>
