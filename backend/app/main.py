@@ -1,6 +1,6 @@
 from fastapi import FastAPI
 
-from auth.router import router as auth_router
+from routers.auth import router as auth_router
 from brand_profile.base import Base
 from brand_profile.database import engine
 from fastapi.middleware.cors import CORSMiddleware
