@@ -1,19 +1,14 @@
-import hashlib
+from sqlalchemy.orm import Session
+
 from brand_profile.database import get_brand_profile
 
-def generate_official_whitelist(brand_id: str) -> dict:
-    brand = get_brand_profile(brand_id)
+def generate_official_whitelist(brand_id: str, db: Session) -> dict:
+    brand = get_brand_profile(brand_id, db)
     if not brand:
-        return {"error": "Brand profile configuration not found."}
+        return {"error": "Brand not found"}
 
-   
-    raw_signature = f"{brand['brand_id']}-{brand['monitored_domain']}-{brand.get('version_hash', '')}"
-    trust_passport_token = hashlib.sha256(raw_signature.encode()).hexdigest()
-
-   
-    whitelist_package = {
+    whitelist = {
         "brand_id": brand["brand_id"],
-        "trust_passport_token": trust_passport_token,
         "company_name": brand["company_name"],
         "whitelisted_domains": [brand["monitored_domain"]] + [sub["official_domain"] for sub in brand.get("subsidiaries", [])],
         "whitelisted_handles": {
@@ -27,12 +22,12 @@ def generate_official_whitelist(brand_id: str) -> dict:
             {
                 "name": worker["name"],
                 "role": worker["role"],
-                "photo_url": worker["photo_url"],
-                "similarity_score_threshold": worker["similarity_score_threshold"]
+                "photo_url": worker["photo_url"]
             }
             for worker in brand.get("official_workers", [])
         ],
-        "false_positive_filters": brand.get("trademark_config", {}).get("false_positive_filters", []),
-        "look_alike_rules": brand.get("look_alike_config", {})
+        "false_positive_filters": (brand.get("trademark_config") or {}).get(
+            "false_positive_filters", []
+        )
     }
-    return whitelist_package
+    return whitelist

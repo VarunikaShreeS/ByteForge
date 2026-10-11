@@ -1,61 +1,39 @@
-from fastapi import APIRouter, HTTPException, status
+from fastapi import APIRouter, Depends, HTTPException
 from brand_profile.models import BrandProfileCreate, BrandProfileResponse
 from brand_profile import database, whitelist
+from database import get_db
+from sqlalchemy.orm import Session
 
-router = APIRouter(prefix="/api/brands", tags=["Brand Profile & Security Engine"])
+router = APIRouter(prefix="/api/brands", tags=["Brand Profile & Monitoring Settings"])
 
-@router.post("/", response_model=BrandProfileResponse, status_code=status.HTTP_201_CREATED)
-def save_complete_brand_profile(profile: BrandProfileCreate):
+@router.post("/", response_model=BrandProfileResponse, status_code=201)
+def create_brand_profile(profile: BrandProfileCreate, db: Session = Depends(get_db)):
     """
-    Saves complete brand profile data dynamically, handling all 7 security features 
-    and ensuring compatibility with any future frontend form expansions.
+    Saves the complete enterprise brand profile including identity, 
+    social handles, apps, subsidiaries, look-alike rules, and official workers.
     """
+    profile_dict = profile.model_dump()
     try:
-        profile_dict = profile.model_dump()
-        saved_data = database.save_brand_profile(profile_dict)
-        return {
-            "success": True,
-            "message": "COMPLETE BRAND PROFILE & ALL OFFICIAL WORKERS SUCCESSFULLY EXEMPTED.",
-            "data": saved_data
-        }
-    except Exception as e:
-        raise HTTPException(
-            status_code=status.HTTP_400_BAD_REQUEST,
-            detail=f"Secure validation error: {str(e)}"
-        )
+        saved_data = database.save_brand_profile(profile_dict, db)
+    except ValueError as exc:
+        raise HTTPException(status_code=409, detail=str(exc)) from exc
+    return saved_data
 
 @router.get("/{brand_id}", response_model=BrandProfileResponse)
-def get_brand_profile(brand_id: str):
-    """Retrieves full brand configurations for dynamic frontend rendering."""
-    profile = database.get_brand_profile(brand_id)
+def get_brand_profile(brand_id: str, db: Session = Depends(get_db)):
+    """Retrieve full configuration settings for a registered brand."""
+    profile = database.get_brand_profile(brand_id, db)
     if not profile:
-        raise HTTPException(status_code=404, detail="Brand profile not found.")
-    return {
-        "success": True,
-        "message": "Brand profile retrieved successfully.",
-        "data": profile
-    }
+        raise HTTPException(status_code=404, detail="Brand profile configuration not found.")
+    return profile
 
-@router.get("/{brand_id}/whitelist", response_model=BrandProfileResponse)
-def get_security_whitelist(brand_id: str):
+@router.get("/{brand_id}/whitelist", summary="Exemption Package for AI Engines")
+def get_brand_whitelist(brand_id: str, db: Session = Depends(get_db)):
     """
-    Exports the cryptographic Trust Passport and exemption package 
-    used by the DRPP detection engine to block false positives.
+    Generates the strict whitelist package used by detection engines 
+    to guarantee official accounts, subsidiaries, and workers are never flagged.
     """
-    result = whitelist.generate_official_whitelist(brand_id)
+    result = whitelist.generate_official_whitelist(brand_id, db)
     if "error" in result:
         raise HTTPException(status_code=404, detail=result["error"])
-    return {
-        "success": True,
-        "message": "Cryptographic Trust Passport and Exemption Package generated.",
-        "data": result
-    }
-
-@router.get("/audit/logs", response_model=BrandProfileResponse)
-def get_audit_trail():
-    """Provides enterprise compliance audit logs for security oversight."""
-    return {
-        "success": True,
-        "message": "Audit trail retrieved successfully.",
-        "data": {"audit_logs": database.get_audit_trail()}
-    }
+    return result

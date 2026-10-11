@@ -2,7 +2,10 @@ fastapi>=0.115,<1
 uvicorn[standard]>=0.30,<1
 pydantic
 sqlalchemy
+pwdlib[argon2]
 rapidfuzz
 opencv-python-headless
 scikit-image
 pillow
+pytest>=8,<9
+httpx2>=2.0,<3
